@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.DescriptionActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:titleTextColor="@color/white" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bookInfoCardView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
+        app:cardBackgroundColor="#FFF4F1"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bookItemLayout"
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
+
+
+            <ImageView
+                android:id="@+id/imgBook"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="This is a dummy book image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_book2" />
+
+            <TextView
+                android:id="@+id/txtBookName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Basics of Android Development"
+                android:textColor="@color/LightOrange"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/imgBook"
+                app:layout_constraintTop_toTopOf="@+id/imgBook" />
+
+            <TextView
+                android:id="@+id/txtAuthorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atul Kumar Gupta"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/txtBookName"
+                app:layout_constraintTop_toBottomOf="@+id/txtBookName" />
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:text="Rs. 299/-"
+                android:textColor="@color/PriceGreen"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBook"
+                app:layout_constraintStart_toEndOf="@+id/imgBook" />
+
+            <ImageView
+                android:id="@+id/imgStar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/txtRating"
+                app:layout_constraintTop_toTopOf="@+id/txtRating"
+                app:srcCompat="@drawable/ic_star" />
+
+            <TextView
+                android:id="@+id/txtRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:text="4.5"
+                android:textColor="#FFC107"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/descriptionCardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bookInfoCardView"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginTop="10dp"
+        android:elevation="3dp"
+        app:cardBackgroundColor="#FFF4F1"
+        app:cardCornerRadius="10dp"
+        app:contentPaddingRight="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/txtAboutBook"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="About Book"
+                android:textColor="@color/LightOrange"
+                android:textSize="22dp" />
+
+            <ScrollView
+                android:id="@+id/descriptionScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/txtAboutBook"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="50dp"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/txtBookDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btnAddToFav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Add to favourites" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
